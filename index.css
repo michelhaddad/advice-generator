@@ -1,0 +1,142 @@
+:root {
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --grayish-blue: hsl(217, 19%, 38%);
+    --dark-grayish-blue: hsl(217, 19%, 24%);
+    --even-darker-grayish-blue: hsl(217, 19%, 17%);
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url("./fonts/Manrope-VariableFont_wght.ttf") format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    color: var(--light-cyan);
+}
+
+#main-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--even-darker-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#quote-container {
+    background-color: var(--dark-grayish-blue);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    min-height: 350px;
+}
+
+@media (min-width: 600px) {
+    #quote-container {
+        max-width: 530px;
+        padding: 2.5rem;
+    }
+}
+
+#quote {
+    font-size: 28px;
+}
+
+#advice {
+    color: var(--neon-green);
+    letter-spacing: 0.27rem;
+    font-size: 12px;
+}
+
+#pattern-divider-desktop {
+    display: none;
+}
+
+#pattern-divider-mobile, #pattern-divider-desktop {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 500px) {
+    #pattern-divider-desktop {
+        display: block;
+    }
+
+    #pattern-divider-mobile {
+        display: none;
+    }
+}
+
+#dice-circle {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--neon-green);
+    bottom: -2rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all 100ms ease-in-out, transform 800ms;
+    cursor: pointer;
+}
+
+#dice-circle:hover, #dice-circle:focus {
+    box-shadow: 0 0 2rem var(--neon-green);
+}
+
+
+/*  Classes */
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fade-text {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate-360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.infinite-rotation {
+    animation: rotate-360 0.7s ease-in-out infinite;
+}
+
+.fading-text {
+    animation: fade-text 2s;
+}
